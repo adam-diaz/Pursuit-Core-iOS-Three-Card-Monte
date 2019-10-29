@@ -36,9 +36,10 @@ class ViewController: UIViewController {
 //        var cardFlip: (cardType: UIImage?, name: String)
         
         let card = 0..<3
-         let winningNumber = card.randomElement()
+         
+        let winningNumber = card.randomElement()
       
-        print(winningNumber)
+//        print(winningNumber)
         
 //        let images = ["threeCard", "kingCard","threeCard"]
         
@@ -58,9 +59,14 @@ class ViewController: UIViewController {
                
                 pickWinOrLose.text = "You Lose! Try Again?"
                 
+                if card0.tag == winningNumber {
+                    sender.setImage(UIImage(named: "kingCard"), for: .normal)
+                }
+                
             }
             [card0, card1, card2].forEach({$0?.isEnabled = false})
-//            cardFlip = (image3, "cardBackRed")
+
+            //            cardFlip = (image3, "cardBackRed")
             // another way for me to complete this is to randomize the image as well.
             // sender.setImage(UIImage(named:images.randomElement() ?? "threeCard"), for: .normal)
         case 1:
@@ -75,9 +81,15 @@ class ViewController: UIViewController {
                 
                 pickWinOrLose.text = "You Lose! Try Again?"
                 
+               
+                
             }
             [card0, card1, card2].forEach({$0?.isEnabled = false})
-//           cardFlip = (image2, "kingCard")
+
+            //            [card0, card2].forEach({$0?.setImage(UIImage(named: "threeCard"), for: .normal)})
+
+            //           cardFlip = (image2, "kingCard")
+        
         case 2:
            
             if winningNumber == sender.tag {
@@ -92,13 +104,16 @@ class ViewController: UIViewController {
                 
                 pickWinOrLose.text = "You Lose! Try Again?"
                 
-                
-                
+            
             }
+            
             [card0, card1, card2].forEach({$0?.isEnabled = false})
-//            cardFlip = (image, "threeCard")
+
+        //            cardFlip = (image, "threeCard")
+        
         default:
-            print("Please pick a card.")
+        
+            pickWinOrLose.text = "Please pick a card."
             
         }
         
